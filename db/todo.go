@@ -1,7 +1,22 @@
 package db
 
-func (q *Queries) CreateTodo(todo Todo) Todo {
+import (
+	"time"
+
+	"gorm.io/gorm"
+)
+
+func (q *Queries) CreateTodo(title string) Todo {
+	todo := Todo{
+		Title: title,
+		Done:  false,
+		Model: gorm.Model{
+			CreatedAt: time.Now(),
+			UpdatedAt: time.Now(),
+		},
+	}
 	q.db.Create(&todo)
+
 	return todo
 }
 

@@ -9,17 +9,14 @@ import (
 )
 
 func randomTodo(t *testing.T) Todo {
-	todo := Todo{
-		Title: util.RandomString(10),
-		Done:  util.RandomBool(),
-	}
+	title := util.RandomString(10)
 
-	createdTodo := testQueries.CreateTodo(todo)
+	createdTodo := testQueries.CreateTodo(title)
 	require.NotEmpty(t, createdTodo)
 	require.NotZero(t, createdTodo.ID)
 
-	require.Equal(t, todo.Title, createdTodo.Title)
-	require.Equal(t, todo.Done, createdTodo.Done)
+	require.Equal(t, title, createdTodo.Title)
+	require.False(t, createdTodo.Done)
 
 	require.WithinDuration(t, time.Now(), createdTodo.CreatedAt, time.Second)
 	require.Zero(t, createdTodo.DeletedAt)
