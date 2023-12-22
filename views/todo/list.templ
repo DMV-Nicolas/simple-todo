@@ -1,0 +1,13 @@
+package todo
+
+import "github.com/DMV-Nicolas/todo/db"
+import "github.com/DMV-Nicolas/todo/views/layout"
+
+
+templ List(todos []db.Todo){
+    @layout.Base(){
+        for _,todo := range todos{
+            <h1>{todo.Title}</h1>
+        }
+    }
+}
