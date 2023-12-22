@@ -21,7 +21,7 @@ func main() {
 		Queries: queries,
 	}
 
-	app.GET("/todo", todoHandler.ListTodos)
+	app.GET("/", todoHandler.ListTodos)
 
 	app.Start(":5000")
 

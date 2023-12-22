@@ -17,22 +17,13 @@ func (q *Queries) ListTodos(offset, limit int) []Todo {
 	return todos
 }
 
-func (q *Queries) UpdateTodo(todo Todo) Todo {
-	q.db.Model(&todo).Updates(Todo{
-		Title:       todo.Title,
-		Description: todo.Description,
-		Done:        todo.Done,
-	})
-	return todo
-}
-
-func (q *Queries) DeleteTodo(id uint) {
-	q.db.Delete(&Todo{}, id)
-}
-
-func (q *Queries) UpdateTodoDone(id uint, done bool) {
+func (q *Queries) UpdateTodo(id uint, done bool) {
 	todo := new(Todo)
 	todo.ID = id
 
 	q.db.Model(todo).Update("done", done)
+}
+
+func (q *Queries) DeleteTodo(id uint) {
+	q.db.Delete(&Todo{}, id)
 }
