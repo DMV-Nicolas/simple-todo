@@ -2,6 +2,7 @@ package todo
 
 import "github.com/DMV-Nicolas/todo/db"
 import "github.com/DMV-Nicolas/todo/views/layout"
+import "fmt"
 
 templ List(todos []db.Todo){
     @layout.Base(){
@@ -10,7 +11,10 @@ templ List(todos []db.Todo){
             <button>Create todo</button>
         </form>
         for _,todo := range todos{
-            <h1>{todo.Title}</h1>
+            <div class="todo">
+                <h2>{todo.Title}</h2>
+                <button hx-delete={ fmt.Sprintf("/%d",todo.ID) }>X</button>
+            </div>
         }
     }  
 }

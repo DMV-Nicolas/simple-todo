@@ -22,6 +22,7 @@ func main() {
 
 	app.GET("/", handler.ListTodos)
 	app.POST("/", handler.CreateTodo)
+	app.DELETE("/:id", handler.DeleteTodo)
 
 	app.Start(":5000")
 
