@@ -3,14 +3,50 @@ package todo
 import "github.com/DMV-Nicolas/todo/db"
 import "fmt"
 
+css todoElem(){
+    display: flex;
+    list-style: none;
+    font-size: 2em;
+    align-items: center;
+    margin: .75em 0;
+    gap: .25em;
+}
+
+css todoTitle(){
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px solid #999999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+css checkbox(){
+    margin: 0;
+    line-height: normal;
+    width: 3.5em;
+    height: 3.5em;
+}
+
+css removeTodo(){
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
 templ Get(todo db.Todo){
-    <li class="todo" id={ fmt.Sprintf("todo-%d", todo.ID) }>
-        if todo.Done {
-            <input name="done" type="checkbox" hx-put={ fmt.Sprintf("/%d",todo.ID) } hx-trigger="click" checked/>
-        } else {
-            <input name="done" type="checkbox" hx-put={ fmt.Sprintf("/%d",todo.ID) } hx-trigger="click"/>
-        }
-        <h2>{todo.Title}</h2>
-        <input type="submit" value="x" hx-delete={ fmt.Sprintf("/%d",todo.ID) } hx-target={ fmt.Sprintf("#todo-%d",todo.ID) } hx-swap="outerHTML" />
+    <li class={ todoElem() } id={ fmt.Sprintf("todo-%d", todo.ID) }>
+        <div>
+            if todo.Done {
+                <input class={ checkbox() } name="done" type="checkbox" hx-put={ fmt.Sprintf("/%d",todo.ID) } hx-trigger="click" checked/>
+            } else {
+                <input class={ checkbox() } name="done" type="checkbox" hx-put={ fmt.Sprintf("/%d",todo.ID) } hx-trigger="click"/>
+            }
+        </div>
+        <p class={ todoTitle() }>{todo.Title}</p>
+        <div>
+            <input class={ removeTodo() } type="submit" value="❌" hx-delete={ fmt.Sprintf("/%d",todo.ID) } hx-target={ fmt.Sprintf("#todo-%d",todo.ID) } hx-swap="outerHTML" />
+        </div>
     </li>
 }

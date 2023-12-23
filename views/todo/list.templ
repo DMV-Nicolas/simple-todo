@@ -3,13 +3,31 @@ package todo
 import "github.com/DMV-Nicolas/todo/db"
 import "github.com/DMV-Nicolas/todo/views/layout"
 
+css todoList(){
+    padding:0;
+}
+
+css createTodo(){
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+    font-size: 4.5em;
+}
+
+css inputTitle(){
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #999999;
+    font-size: .8em;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
 templ List(todos []db.Todo){
     @layout.Base(){
-        <form hx-post="/" hx-target="#todo-list" hx-swap="beforeend">
-            <input type="text" name="title" />
-            <button>Create todo</button>
+        <form class={ createTodo() } hx-post="/" hx-target="#todo-list" hx-swap="beforeend">
+            <label for="title">THINGS TO DO: </label>
+            <input class={ inputTitle() } type="text" name="title" id="title"/>
         </form>
-        <ul id="todo-list">
+        <ul class={ todoList() } id="todo-list">
             for _,todo := range todos{
                 @Get(todo)
             }

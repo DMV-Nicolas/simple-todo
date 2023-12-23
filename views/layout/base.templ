@@ -1,12 +1,22 @@
 package layout
 
+css container(){
+    width: 70%;
+    margin: auto;
+    padding: 0;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
 templ Base(){
     <html lang="en">
     <head>
         <title>Document</title>
     </head>
     <body>
-        <div class="container">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+        </style>
+        <div class={ container() }>
             { children... }
         </div>
         <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
