@@ -37,6 +37,7 @@ func todoTitle() templ.CSSClass {
 	templ_7745c5c3_CSSBuilder.WriteString(`overflow:hidden;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`white-space:nowrap;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`text-overflow:ellipsis;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`font-size:1.5em;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`todoTitle`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,

@@ -13,7 +13,7 @@ import "strings"
 
 func container() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(`width:70%;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`width:60%;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`margin:auto;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`padding:0;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`font-family:'Nanum Pen Script', cursive;`)
@@ -52,6 +52,24 @@ func Base() templ.Component {
 		}
 		templ_7745c5c3_Var3 := `
             @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+            @media screen and (max-width: 1380px) {
+                *{
+                    font-size:12px;
+                }
+            }
+
+            @media screen and (max-width: 1050px) {
+                *{
+                    font-size:8px;
+                }
+            }
+
+            @media screen and (max-width: 700px) {
+                *{
+                    font-size:4px;
+                }
+            }
+}
         `
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var3)
 		if templ_7745c5c3_Err != nil {

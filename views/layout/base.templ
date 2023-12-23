@@ -1,7 +1,7 @@
 package layout
 
 css container(){
-    width: 70%;
+    width: 60%;
     margin: auto;
     padding: 0;
     font-family: 'Nanum Pen Script', cursive;
@@ -15,6 +15,24 @@ templ Base(){
     <body>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+            @media screen and (max-width: 1380px) {
+                *{
+                    font-size:12px;
+                }
+            }
+
+            @media screen and (max-width: 1050px) {
+                *{
+                    font-size:8px;
+                }
+            }
+
+            @media screen and (max-width: 700px) {
+                *{
+                    font-size:4px;
+                }
+            }
+}
         </style>
         <div class={ container() }>
             { children... }
