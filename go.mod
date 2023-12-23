@@ -1,4 +1,4 @@
-module github.com/DMV-Nicolas/todo
+module github.com/DMV-Nicolas/simple-todo
 
 go 1.21.5
 

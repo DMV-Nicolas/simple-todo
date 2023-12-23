@@ -1,6 +1,6 @@
 package handlers
 
-import "github.com/DMV-Nicolas/todo/db"
+import "github.com/DMV-Nicolas/simple-todo/db"
 
 type Handler struct {
 	queries *db.Queries

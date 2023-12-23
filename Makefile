@@ -1,4 +1,7 @@
-server:
-	templ generate
+run:
 	go run main.go
-.PHONY: server templ
+build:
+	go build -o simple-todo main.go
+templ:
+	templ generate
+.PHONY: run build templ

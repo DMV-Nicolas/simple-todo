@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DMV-Nicolas/todo/util"
+	"github.com/DMV-Nicolas/simple-todo/util"
 	"github.com/stretchr/testify/require"
 )
 

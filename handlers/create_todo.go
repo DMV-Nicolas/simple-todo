@@ -4,7 +4,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/DMV-Nicolas/todo/views/todo"
+	"github.com/DMV-Nicolas/simple-todo/views/todo"
 	"github.com/labstack/echo/v4"
 )
 

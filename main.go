@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/DMV-Nicolas/todo/db"
-	"github.com/DMV-Nicolas/todo/handlers"
+	"github.com/DMV-Nicolas/simple-todo/db"
+	"github.com/DMV-Nicolas/simple-todo/handlers"
 	"github.com/labstack/echo/v4"
 )
 
