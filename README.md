@@ -2,7 +2,7 @@
 ## Table of Contents
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
-3. [Installation](#installation) (in process)
+3. [Installation](#installation)
 ### General Info
 ***
 Simple Todo is a web application where you can manage your time by creating todos ⚡.
