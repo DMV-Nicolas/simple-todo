@@ -16,5 +16,5 @@ func (h *Handler) DeleteTodo(c echo.Context) error {
 
 	h.queries.DeleteTodo(uint(id))
 
-	return c.JSON(http.StatusOK, nil)
+	return nil
 }
