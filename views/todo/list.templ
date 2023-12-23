@@ -2,24 +2,17 @@ package todo
 
 import "github.com/DMV-Nicolas/todo/db"
 import "github.com/DMV-Nicolas/todo/views/layout"
-import "fmt"
 
 templ List(todos []db.Todo){
     @layout.Base(){
-        <form hx-post="/">
+        <form hx-post="/" hx-target="#todo-list" hx-swap="beforeend">
             <input type="text" name="title" />
             <button>Create todo</button>
         </form>
-        for _,todo := range todos{
-            <div class="todo">
-                if todo.Done {
-                    <input name="done" type="checkbox" hx-put={ fmt.Sprintf("/%d",todo.ID) } hx-trigger="click" checked/>
-                } else {
-                    <input name="done" type="checkbox" hx-put={ fmt.Sprintf("/%d",todo.ID) } hx-trigger="click"/>
-                }
-                <h2>{todo.Title}</h2>
-                <input type="submit" value="x" hx-delete={ fmt.Sprintf("/%d",todo.ID) } />
-            </div>
-        }
+        <ul id="todo-list">
+            for _,todo := range todos{
+                @Get(todo)
+            }
+        </ul>
     }  
 }

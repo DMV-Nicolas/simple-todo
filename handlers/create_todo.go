@@ -4,6 +4,7 @@ import (
 	"errors"
 	"net/http"
 
+	"github.com/DMV-Nicolas/todo/views/todo"
 	"github.com/labstack/echo/v4"
 )
 
@@ -14,7 +15,7 @@ func (h *Handler) CreateTodo(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusBadRequest, err)
 	}
 
-	todo := h.queries.CreateTodo(title)
+	t := h.queries.CreateTodo(title)
 
-	return c.JSON(http.StatusCreated, todo)
+	return RenderTemplate(c, todo.Get(t))
 }
