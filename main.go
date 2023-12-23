@@ -17,11 +17,10 @@ func main() {
 	queries := db.NewQueries(sqlDB)
 
 	app := echo.New()
-	todoHandler := &handlers.TodoHandler{
-		Queries: queries,
-	}
 
-	app.GET("/", todoHandler.ListTodos)
+	handler := handlers.NewHandler(queries)
+
+	app.GET("/", handler.ListTodos)
 
 	app.Start(":5000")
 
