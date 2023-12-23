@@ -12,8 +12,13 @@ templ List(todos []db.Todo){
         </form>
         for _,todo := range todos{
             <div class="todo">
+                if todo.Done {
+                    <input name="done" type="checkbox" hx-put={ fmt.Sprintf("/%d",todo.ID) } hx-trigger="click" checked/>
+                } else {
+                    <input name="done" type="checkbox" hx-put={ fmt.Sprintf("/%d",todo.ID) } hx-trigger="click"/>
+                }
                 <h2>{todo.Title}</h2>
-                <button hx-delete={ fmt.Sprintf("/%d",todo.ID) }>X</button>
+                <input type="submit" value="x" hx-delete={ fmt.Sprintf("/%d",todo.ID) } />
             </div>
         }
     }  
