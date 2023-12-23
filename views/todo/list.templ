@@ -1,9 +1,16 @@
 package todo
 
 import "github.com/DMV-Nicolas/todo/db"
+import "github.com/DMV-Nicolas/todo/views/layout"
 
 templ List(todos []db.Todo){
-    for _,todo := range todos{
-        <h1>{todo.Title}</h1>
-    }
+    @layout.Base(){
+        <form hx-post="/">
+            <input type="text" name="title" />
+            <button>Create todo</button>
+        </form>
+        for _,todo := range todos{
+            <h1>{todo.Title}</h1>
+        }
+    }  
 }

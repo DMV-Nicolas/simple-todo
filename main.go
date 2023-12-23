@@ -21,6 +21,7 @@ func main() {
 	handler := handlers.NewHandler(queries)
 
 	app.GET("/", handler.ListTodos)
+	app.POST("/", handler.CreateTodo)
 
 	app.Start(":5000")
 
