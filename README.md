@@ -6,6 +6,8 @@
 ### General Info
 ***
 Simple Todo is a web application where you can manage your time by creating todos ⚡.
+### Screenshot
+![Simple Todo](./screenshots/home.png)
 ## Technologies
 ***
 List of technologies used within the project:
